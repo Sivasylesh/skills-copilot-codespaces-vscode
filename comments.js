@@ -80,4 +80,9 @@ app.post('/login', async (req, res) => {
         });
     }
 
-    let token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '1
+        let token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+        res.json({
+            status: true,
+            token: token
+        });
+    });
